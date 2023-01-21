@@ -1,5 +1,5 @@
 /**
- * Testbench template
+ * testbench template
  *
  * @version: 0.1
  * @author : Gabriel Villanova N. M.

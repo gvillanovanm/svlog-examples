@@ -13,7 +13,7 @@ CDS_DEBUG	    = -debug -linedebug -classlinedebug
 CDS_COV_FLAGS = -coverage all
 CDS_UVM_FLAGS = -uvm +UVM_NO_RELNOTES
 CDS_UVM_DEBUG = -uvmlinedebug +UVM_PHASE_TRACE +UVM_OBJECTION_TRACE
-CDS_DEFINES 	= -define
+CDS_DEFINES 	= -define QUEUE_STRING
 
 cds_batchmode: cds_clean
 	xrun $(CDS_DATABASE) $(CDS_DEBUG) $(CDS_COV_FLAGS) $(CDS_UVM_FLAGS) $(CDS_UVM_DEBUG) $(DUT_FILES) $(CDS_DEFINES) $(TB).sv
