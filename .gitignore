@@ -9,6 +9,7 @@ verilog.dump
 icc*
 imc*
 mdv*
+wave_image
 
 # questa
 _info
