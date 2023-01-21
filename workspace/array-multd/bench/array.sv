@@ -1,3 +1,10 @@
+/**
+ * Testbench working with multi-dimensional array
+ *
+ * @version: 0.1
+ * @author : Gabriel Villanova N. M.
+ */
+
 module tb();
 
   localparam NBW_IN  = 7;

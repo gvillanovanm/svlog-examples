@@ -12,6 +12,8 @@ cds_sim: cds_clean
 cds_clean:
 	rm -rf xcelium.d
 	rm -rf xrun.*
+	rm -rf .simvision
+	rm -rf xmsim*
 
 # ----------------------------------------------------
 # QuestaSim
@@ -34,3 +36,6 @@ questa_clean:
 	rm -rf transcript
 	rm -rf vsim.wlf
 	rm -rf ../libs/
+
+# clean
+clean: cds_clean questa_clean

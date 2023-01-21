@@ -1,2 +1,17 @@
-xcelium.d
+# cds
 xrun.*
+xcelium*
+*.vcd
+*.shm
+.simvision
+verilog.dump
+icc*
+imc*
+mdv*
+
+# questa
+_info
+*.qdb
+*.qpg
+*.qtl
+_vmake
