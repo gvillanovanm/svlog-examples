@@ -4,6 +4,7 @@ xcelium*
 *.vcd
 *.shm
 .simvision
+simvision*
 verilog.dump
 icc*
 imc*
