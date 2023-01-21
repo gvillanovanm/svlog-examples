@@ -16,3 +16,6 @@ _info
 *.qpg
 *.qtl
 _vmake
+
+# other
+*.csv
