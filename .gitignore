@@ -10,6 +10,8 @@ icc*
 imc*
 mdv*
 wave_image
+cov_work
+.uvmtclcomm.txt
 
 # questa
 _info

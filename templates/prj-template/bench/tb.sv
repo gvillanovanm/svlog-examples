@@ -5,7 +5,7 @@
  * @author : Gabriel Villanova N. M.
  */
 
- module tb;
+module tb;
   // localparams
   localparam CLK_PERIOD = 10;
 

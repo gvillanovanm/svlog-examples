@@ -1,5 +1,5 @@
 TB = tb
-PKG_FILES = 
+PKG_FILES = eg_pkg.sv
 DUT_FILES = ../svlog/dut.sv
 
 run_cds: cds_batchmode
@@ -12,7 +12,7 @@ CDS_DATABASE  = -sysv -64 -access rwc
 CDS_DEBUG     = -debug -linedebug -classlinedebug
 CDS_COV_FLAGS = -coverage all
 CDS_UVM_FLAGS = -uvm +UVM_NO_RELNOTES
-CDS_UVM_DEBUG = -uvmlinedebug +UVM_PHASE_TRACE +UVM_OBJECTION_TRACE
+# CDS_UVM_DEBUG = -uvmlinedebug +UVM_PHASE_TRACE +UVM_OBJECTION_TRACE
 CDS_DEFINES   = -define DEF_DUMMY
 
 cds_batchmode: cds_clean
