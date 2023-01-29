@@ -1,6 +1,6 @@
 TB = tb
 PKG_FILES = eg_pkg.sv
-DUT_FILES = ../svlog/dut.sv
+# DUT_FILES = ../svlog/dut.sv
 
 run_cds: cds_batchmode
 run_questa: questa_batchmode 

@@ -12,8 +12,6 @@ module tb;
   
   import eg_pkg::*;
 
-  // eg_env env;
-
   // main block
   initial begin
     // codes here ...
@@ -21,7 +19,7 @@ module tb;
     $display("# starts tb");
     $display("\n");
 
-    // env = new("env", null);
+    // change it for +UVM_TESTNAME
     run_test("eg_test_basic");
   end
   

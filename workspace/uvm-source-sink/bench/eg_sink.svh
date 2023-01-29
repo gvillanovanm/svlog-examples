@@ -18,7 +18,7 @@ class eg_sink extends uvm_component;
       repeat(10) begin
         begin_tr(tx, "sink"); // "save" in the sink the transaction 
         in.get(tx);           // get the transaction
-        `uvm_info("SINK", $sformatf(".. is reciving %b, %0d\n", tx.cmd, tx.data), UVM_LOW)
+        `uvm_info("SINK", $sformatf(".. is receiving %b, %0d\n", tx.cmd, tx.data), UVM_LOW)
         #10;                  // delay 10 unit ts
         end_tr(tx);           // end the transaction
       end
