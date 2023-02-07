@@ -13,15 +13,15 @@ echo_title() {
 
 echo_error_pjr_name_not_pass() {
   echo "[error] pass the name of project"
-  echo "[error] eg.: ./prj-create.sh blinky" $'\n\n'
+  echo "[error] eg.: ./prj-create.sh blinky" '\n\n'
 }
 
 echo_error_prj_exist() {
-  echo "[error] the project $1 already exists" $'\n\n'
+  echo "[error] the project $1 already exists" '\n\n'
 }
 
 echo_create_prj() {
-  echo "[info] the project $1 will be created" $'\n'
+  echo "[info] the project $1 was created" '\n'
 }
 
 # --------------------------------------------
