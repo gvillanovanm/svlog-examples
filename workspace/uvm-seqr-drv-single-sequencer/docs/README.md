@@ -1,10 +1,9 @@
-## Example of uvm sequencer->driver
+## Example of uvm single-sequencer->driver generation
 
-The example shows how to create and initiate sequences for a driver. The sequence default is started using uvm_config_wrapper::set() and star() call.
+The example shows how to create and initiate a single sequence for a driver. The sequence default is started using uvm_config_wrapper::set() and start() call.
 
-## How is the better way to start a sequence?
-
-What is the difference between a single sequencer and a virtual sequencer? What kind the problems each one fixes?
+## What is the difference between a single sequencer and a virtual sequencer? 
+## What kind the problems each one fixes?
 
 A single sequencer and a virtual sequencer are two approaches in the SystemVerilog Universal Verification Methodology (UVM) for generating stimulus in a verification environment.
 
