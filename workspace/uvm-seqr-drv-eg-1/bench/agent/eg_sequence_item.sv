@@ -5,8 +5,8 @@ class eg_sequence_item extends uvm_sequence_item;
   rand logic [1:0] cmd;
 
   `uvm_object_utils_begin(eg_sequence_item)
-    `uvm_field_int(data_a, UVM_ALL_ON)
-    `uvm_field_int(data_b, UVM_ALL_ON)
+    `uvm_field_int(data_a, UVM_ALL_ON | UVM_DEC)
+    `uvm_field_int(data_b, UVM_ALL_ON | UVM_DEC)
     `uvm_field_int(cmd, UVM_ALL_ON)
   `uvm_object_utils_end
 

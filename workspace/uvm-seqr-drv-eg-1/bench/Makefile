@@ -14,7 +14,7 @@ CDS_DEBUG     = -debug -linedebug -classlinedebug
 CDS_UVM_FLAGS = -uvm +UVM_NO_RELNOTES +UVM_TESTNAME=eg_test
 CDS_DEFINES   = -define DEF_DUMMY -timescale 1ns/100ps
 CDS_COV_FLAGS = 
-CDS_UVM_DEBUG = 
+CDS_UVM_DEBUG =
 
 cds_batchmode: cds_clean
 	xrun $(CDS_DATABASE) $(CDS_DEBUG) $(CDS_COV_FLAGS) $(CDS_UVM_FLAGS) $(CDS_UVM_DEBUG) $(DUT_FILES) $(CDS_DEFINES) $(PKG_FILES) $(TB).sv

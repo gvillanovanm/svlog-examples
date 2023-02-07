@@ -2,6 +2,7 @@ class eg_test extends uvm_test;
   `uvm_component_utils(eg_test)
 
   eg_env env;
+  eg_sequence_type_b seq_type_b;
 
   function new(string name = "eg_test", uvm_component parent);
     super.new(name, parent);
@@ -15,18 +16,27 @@ class eg_test extends uvm_test;
 
     // ways for start a sequence...
     
-    // way 1: choose the sequence that you want to use (..type_a or ..type_b for example)
+    // way 1: choose the sequence that you want to use (..type_b or ..type_b for example)
     uvm_config_wrapper::set(
       this, 
-      "env.agent.sequencer.run_phase",
+      "env.agent.sequencer.run_phase", // attention with the phase and objections
       "default_sequence",
-      eg_sequence_type_a::get_type());
+      eg_sequence_type_b::get_type()); // attention with the sequence_type*
 
     // way 2...
+    // seq_type_b = eg_sequence_type_b::type_id::create("seq");
   endfunction: build_phase
   
   function void end_of_elaboration_phase(uvm_phase phase);
     uvm_top.print_topology();    
   endfunction: end_of_elaboration_phase
   
+  // task run_phase(uvm_phase phase);
+    // `uvm_info(get_name(), "<run_phase> started, objection raised.", UVM_NONE)
+    // phase.raise_objection(this);
+      // seq_type_b.start(env.agent.sequencer);
+    // phase.drop_objection(this);
+    // `uvm_info(get_name(), "<run_phase> finished, objection dropped.", UVM_NONE)
+  // endtask: run_phase
+
 endclass: eg_test

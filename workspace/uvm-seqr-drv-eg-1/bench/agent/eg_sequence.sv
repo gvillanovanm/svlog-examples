@@ -36,6 +36,7 @@ class eg_sequence_type_a extends uvm_sequence #(eg_sequence_item);
     end
   endtask: body
 
+  // what happens if you do not drop_objection here? :)
   virtual task post_body();
     `uvm_info(get_name(), "Drop objection on post_body sequence", UVM_MEDIUM)
     if(starting_phase != null)
@@ -84,6 +85,7 @@ class eg_sequence_type_b extends uvm_sequence #(eg_sequence_item);
     end
   endtask: body
 
+  // what happens if you do not drop_objection here? :)
   virtual task post_body();
     `uvm_info(get_name(), "Drop objection on post_body sequence", UVM_MEDIUM)
     if(starting_phase != null)
