@@ -26,7 +26,7 @@ module tb;
   
   // function
   typedef real array_fnc[SIZE_OF_ARRAY];
-  function array_fnc name(input real a[SIZE_OF_ARRAY], input int pos, input bit dir);
+  function array_fnc shift_n_pos_array_by_direction(input real a[SIZE_OF_ARRAY], input int pos, input bit dir);
     int temp;
 
     for(int i=0; i<pos; i++) begin
