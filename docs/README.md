@@ -1,7 +1,7 @@
 SystemVerilog Examples
 ======================
 
-Welcome to the SystemVerilog Examples repository! Here you will find various examples that demonstrate the capabilities and features of the SystemVerilog HDL language. These examples can serve as a starting point for understanding and practice the language, as well as for incorporating into more complex development environments.
+Welcome to the SystemVerilog Examples repository! Here you will find various examples that demonstrate the capabilities and features of the SystemVerilog HDL language. These examples can serve as a starting point for understanding, practice, improve the SystemVerilog language, as well as for incorporating into more complex development environments.
 
 The repository idea:
 
