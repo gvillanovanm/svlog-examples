@@ -1,0 +1,26 @@
+# Current time Mon Jul 10 21:35:13 2023
+# Program = vsim
+# Id = "2021.2"
+# Version = "2021.04"
+# Date = "Apr 14 2021"
+# Platform = "linux_x86_64"
+# Signature = 4180c34bc81bf15e13c03b3939ce2075
+# 0    0x00007feff03347af: 'copy.sv:14'
+# 1    0x000000000345e8ea: '<unknown (@0x345e8ea)>'
+# 2    0x00000000004c6dd4: '<unknown (@0x4c6dd4)>'
+# 3    0x00000000006e8153: '<unknown (@0x6e8153)>'
+# 4    0x0000000000c02e55: '<unknown (@0xc02e55)>'
+# 5    0x0000000000c07d13: '<unknown (@0xc07d13)>'
+# 6    0x0000000000c09a6e: '<unknown (@0xc09a6e)>'
+# 7    0x0000000000ed3c0d: '<unknown (@0xed3c0d)>'
+# 8    0x00000000038eccbd: '<unknown (@0x38eccbd)>'
+# 9    0x00000000038f1116: '<unknown (@0x38f1116)>'
+# 10   0x00000000038f2801: '<unknown (@0x38f2801)>'
+# 11   0x00000000038f2b66: '<unknown (@0x38f2b66)>'
+# 12   0x00000000038f4283: '<unknown (@0x38f4283)>'
+# 13   0x00000000038f4a41: '<unknown (@0x38f4a41)>'
+# 14   0x0000000000bcd9f0: '<unknown (@0xbcd9f0)>'
+# 15   0x0000000000bcf49d: '<unknown (@0xbcf49d)>'
+# End of Stack Trace
+
+
