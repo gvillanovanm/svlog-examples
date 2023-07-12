@@ -1,6 +1,6 @@
 TB = tb
 PKG_FILES = 
-DUT_FILES = ../svlog/dut.sv
+DUT_FILES =
 
 run_cds: cds_batchmode
 run_questa: questa_batchmode 
@@ -33,9 +33,10 @@ cds_clean:
 # QuestaSim
 # ----------------------------------------------------
 QUESTA_LIB_WORK = lib_BENCH
+QUESTA_DEF_MACR = +define+QUESTA_SIM
 
 questa_batchmode: questa_clean questa_libs questa_compile
-	vsim +nowarn3116 -batch -do "run -all" lib_BENCH.tb
+	vsim +nowarn3116 -batch -do "run -all" $(QUESTA_LIB_WORK).tb
 
 questa_gui: questa_clean questa_libs questa_compile
 	vsim
@@ -43,7 +44,7 @@ questa_gui: questa_clean questa_libs questa_compile
 questa_compile:
 	vlib ../libs/$(QUESTA_LIB_WORK)
 	vmap $(QUESTA_LIB_WORK) ../libs/$(QUESTA_LIB_WORK) 
-	vlog -work $(QUESTA_LIB_WORK) $(DUT_FILES) $(TB).sv
+	vlog $(QUESTA_DEF_MACR) -work $(QUESTA_LIB_WORK) $(DUT_FILES) $(TB).sv
 
 questa_libs:
 	mkdir -p ../libs/lib_BENCH

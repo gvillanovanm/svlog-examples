@@ -15,7 +15,11 @@ class CustomRandomize;
   endfunction
 
   function real get_value();
-    void'(this.randomize());
+    `ifdef QUESTA_SIM
+      multiplier = $random();
+    `else
+      void'(this.randomize());
+    `endif
     return this.get_value_randomized();
   endfunction
 endclass
@@ -39,7 +43,7 @@ module tb;
       $display("x, y = %8f, %8f", x, y);
     end
 
-    $finish;
+    $finish();
   end
 
   initial begin
