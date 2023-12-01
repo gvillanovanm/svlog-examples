@@ -16,6 +16,10 @@ CDS_UVM_DEBUG = -uvmlinedebug +UVM_PHASE_TRACE +UVM_OBJECTION_TRACE
 CDS_DEFINES   = -define DEF_DUMMY
 CDS_TCL	      = -tcl -input ../scripts/control-sim.tcl
 
+cds_convert_files:
+	ps2pdf input.ps output.pdf
+	@echo '# This is necessary to see the result properly'
+
 cds_tcl: cds_clean
 	xrun $(CDS_DATABASE) $(CDS_DEBUG) $(CDS_COV_FLAGS) $(CDS_UVM_FLAGS) $(CDS_UVM_DEBUG) $(DUT_FILES) $(CDS_DEFINES) $(CDS_TCL) $(TB).sv
 
