@@ -48,6 +48,9 @@ questa_compile:
 questa_libs:
 	mkdir -p ../libs/lib_BENCH
 
+questa_help:
+	@echo 'To run the GUI in MacOS, open the vsim (docker gui mode and compile inside it with questa_compile)'
+
 questa_clean:
 	rm -rf modelsim.ini
 	rm -rf transcript

@@ -21,15 +21,13 @@ module tb;
 
   // main block
   initial begin
+    // dump variable for debug
+    $dumpfile("dump.vcd");
+    $dumpvars;
+    
     // codes here ...
 
     $finish();
-  end
-  
-  // dump variable for debug
-  initial begin
-    $dumpfile("dump.vcd");
-    $dumpvars;
   end
 
   // final block
