@@ -1,10 +1,4 @@
-# TB = tb
-# TB = super-method
-# TB = constraint
-# TB = fork_join_none
-# TB = dut_con
-TB = basic-class
-
+TB = super-method # options: tb, constraint, fork_join_none, dut_con, basic-class
 PKG_FILES = 
 DUT_FILES = ../svlog/dut.sv
 
@@ -41,7 +35,7 @@ cds_clean:
 QUESTA_LIB_WORK = lib_BENCH
 
 questa_batchmode: questa_clean questa_libs questa_compile
-	vsim +nowarn3116 -batch -do "run -all" lib_BENCH.tb
+	vsim +nowarn3116 -batch -do "run -all" $(QUESTA_LIB_WORK).tb
 
 questa_gui: questa_clean questa_libs questa_compile
 	vsim
@@ -49,7 +43,7 @@ questa_gui: questa_clean questa_libs questa_compile
 questa_compile:
 	vlib ../libs/$(QUESTA_LIB_WORK)
 	vmap $(QUESTA_LIB_WORK) ../libs/$(QUESTA_LIB_WORK) 
-	vlog -work $(QUESTA_LIB_WORK) $(DUT_FILES) $(TB).sv
+	vlog -work $(QUESTA_LIB_WORK) $(DUT_FILES) $(PKG_FILES) $(TB).sv
 
 questa_libs:
 	mkdir -p ../libs/lib_BENCH

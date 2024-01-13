@@ -1,19 +1,33 @@
 TB = array
+PKG_FILES = 
+DUT_FILES = # ../svlog/dut.sv
 
-run_cds: cds_sim
+run_cds: cds_batchmode
 run_questa: questa_batchmode 
 
 # ----------------------------------------------------
 # Xrun Cadence
 # ----------------------------------------------------
-cds_sim: cds_clean
-	xrun $(TB).sv
+CDS_DATABASE  = -sysv -64 -access rwc 
+CDS_DEBUG     = -debug -linedebug -classlinedebug
+CDS_COV_FLAGS = -coverage all
+CDS_UVM_FLAGS = -uvm +UVM_NO_RELNOTES
+CDS_UVM_DEBUG = -uvmlinedebug +UVM_PHASE_TRACE +UVM_OBJECTION_TRACE
+CDS_DEFINES   = -define DEF_DUMMY
+
+cds_batchmode: cds_clean
+	xrun $(CDS_DATABASE) $(CDS_DEBUG) $(CDS_COV_FLAGS) $(CDS_UVM_FLAGS) $(CDS_UVM_DEBUG) $(DUT_FILES) $(CDS_DEFINES) $(PKG_FILES) $(TB).sv
+
+cds_gui:
+	xrun $(CDS_DATABASE) $(CDS_DEBUG) $(CDS_COV_FLAGS) $(CDS_UVM_FLAGS) $(CDS_UVM_DEBUG) $(DUT_FILES) $(CDS_DEFINES) $(PKG_FILES) $(TB).sv -gui
 
 cds_clean:
 	rm -rf xcelium.d
 	rm -rf xrun.*
 	rm -rf .simvision
 	rm -rf xmsim*
+	rm -rf cov_work
+	rm -rf *.vcd
 
 # ----------------------------------------------------
 # QuestaSim
@@ -21,15 +35,21 @@ cds_clean:
 QUESTA_LIB_WORK = lib_BENCH
 
 questa_batchmode: questa_clean questa_libs questa_compile
-	vsim +nowarn3116 -batch -do "run -all" lib_BENCH.tb
+	vsim +nowarn3116 -batch -do "run -all" $(QUESTA_LIB_WORK).tb
+
+questa_gui: questa_clean questa_libs questa_compile
+	vsim
 
 questa_compile:
 	vlib ../libs/$(QUESTA_LIB_WORK)
 	vmap $(QUESTA_LIB_WORK) ../libs/$(QUESTA_LIB_WORK) 
-	vlog -work $(QUESTA_LIB_WORK) $(VLOG_FILES) $(TB).sv
+	vlog -work $(QUESTA_LIB_WORK) $(DUT_FILES) $(PKG_FILES) $(TB).sv
 
 questa_libs:
 	mkdir -p ../libs/lib_BENCH
+
+questa_help:
+	@echo 'To run the GUI in MacOS, open the vsim (docker gui mode and compile inside it with questa_compile)'
 
 questa_clean:
 	rm -rf modelsim.ini

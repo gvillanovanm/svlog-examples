@@ -35,7 +35,7 @@ cds_clean:
 QUESTA_LIB_WORK = lib_BENCH
 
 questa_batchmode: questa_clean questa_libs questa_compile
-	vsim +nowarn3116 -batch -do "run -all" lib_BENCH.tb
+	vsim +nowarn3116 -batch -do "run -all" $(QUESTA_LIB_WORK).tb
 
 questa_gui: questa_clean questa_libs questa_compile
 	vsim
@@ -43,10 +43,13 @@ questa_gui: questa_clean questa_libs questa_compile
 questa_compile:
 	vlib ../libs/$(QUESTA_LIB_WORK)
 	vmap $(QUESTA_LIB_WORK) ../libs/$(QUESTA_LIB_WORK) 
-	vlog -work $(QUESTA_LIB_WORK) $(DUT_FILES) $(TB).sv
+	vlog -work $(QUESTA_LIB_WORK) $(DUT_FILES) $(PKG_FILES) $(TB).sv
 
 questa_libs:
 	mkdir -p ../libs/lib_BENCH
+
+questa_help:
+	@echo 'To run the GUI in MacOS, open the vsim (docker gui mode and compile inside it with questa_compile)'
 
 questa_clean:
 	rm -rf modelsim.ini
