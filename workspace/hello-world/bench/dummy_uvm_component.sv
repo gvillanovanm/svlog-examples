@@ -1,10 +1,9 @@
-
-
-// -----------------------------------------------------------------------
-// dummy_uvm_component
-// @brief : methods to print string
-// @author: Gabriel Villanova NM
-// -----------------------------------------------------------------------
+/**
+ * testbench template
+ *
+ * @version: 0.1
+ * @author : Gabriel Villanova N. M.
+ */
 class dummy_uvm_component extends uvm_component;
     `uvm_component_utils(dummy_uvm_component);
 

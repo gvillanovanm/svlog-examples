@@ -19,6 +19,9 @@ _info
 *.qpg
 *.qtl
 _vmake
+lib_BENCH
+*.wlf
+transcript
 
 # other
 *.csv
