@@ -8,7 +8,6 @@ run_questa: questa_batchmode
 # ----------------------------------------------------
 # Xrun Cadence
 # ----------------------------------------------------
-
 CDS_DATABASE  = -sysv -64 -access rwc 
 CDS_DEBUG     = -debug -linedebug -classlinedebug
 CDS_UVM_FLAGS = -uvm +UVM_NO_RELNOTES +UVM_TESTNAME=eg_test
