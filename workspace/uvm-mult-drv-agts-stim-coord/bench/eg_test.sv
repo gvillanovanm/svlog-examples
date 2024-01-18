@@ -22,16 +22,15 @@ class eg_test extends uvm_test;
     task main_phase(uvm_phase phase);
         `uvm_info(get_name(), "<run_phase> started, objection raised.", UVM_NONE)
         phase.raise_objection(this);
-            fork
-                begin 
-                    uu_eg_sequence_a.start(uu_eg_env.uu_eg_agent_a.uu_eg_sequencer_a);
-                end
+        fork
+            begin
+                uu_eg_sequence_a.start(uu_eg_env.uu_eg_agent_a.uu_eg_sequencer_a);
+            end
 
-                begin 
-                    uu_eg_sequence_b.start(uu_eg_env.uu_eg_agent_b.uu_eg_sequencer_b); 
-                end
-            join
-            
+            begin
+                uu_eg_sequence_b.start(uu_eg_env.uu_eg_agent_b.uu_eg_sequencer_b); 
+            end
+        join
         phase.drop_objection(this);
         `uvm_info(get_name(), "<run_phase> finished, objection dropped.", UVM_NONE)
     endtask : main_phase

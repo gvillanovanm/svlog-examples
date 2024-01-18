@@ -2,6 +2,8 @@
 class eg_sequence_a extends uvm_sequence #(eg_sequence_item_a);
   `uvm_object_utils(eg_sequence_a)
 
+  
+
   function new(string name = "eg_sequence_a");
     super.new(name);
   endfunction: new
@@ -15,6 +17,8 @@ class eg_sequence_a extends uvm_sequence #(eg_sequence_item_a);
       start_item(req);
       // assert(req.randomize()); only if you have license
       req.data_a++;
+      req.o_data_a = req.data_a + 100;
+
       finish_item(req);
       #10;
       
