@@ -16,6 +16,8 @@ package eg_pkg;
     `include "agent_b/eg_driver_b.sv"
     `include "agent_b/eg_agent_b.sv"
 
+    `include "eg_virtual_sequence.sv"
+
     `include "eg_env.sv"
     `include "eg_test.sv"
 endpackage : eg_pkg

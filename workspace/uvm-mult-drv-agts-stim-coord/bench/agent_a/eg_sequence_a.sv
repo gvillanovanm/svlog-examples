@@ -2,8 +2,6 @@
 class eg_sequence_a extends uvm_sequence #(eg_sequence_item_a);
   `uvm_object_utils(eg_sequence_a)
 
-  
-
   function new(string name = "eg_sequence_a");
     super.new(name);
   endfunction: new
