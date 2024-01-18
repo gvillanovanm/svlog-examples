@@ -3,6 +3,7 @@ class eg_test extends uvm_test;
 
     eg_env uu_eg_env;
     eg_sequence_a uu_eg_sequence_a;
+    eg_sequence_b uu_eg_sequence_b;
 
     function new(string name = "eg_test", uvm_component parent);
         super.new(name, parent);
@@ -15,12 +16,22 @@ class eg_test extends uvm_test;
     function void build_phase(uvm_phase phase);
         uu_eg_env = eg_env::type_id::create("uu_eg_env", this);
         uu_eg_sequence_a = eg_sequence_a::type_id::create("uu_eg_sequence_a", this);
+        uu_eg_sequence_b = eg_sequence_b::type_id::create("uu_eg_sequence_b", this);
     endfunction : build_phase
 
     task main_phase(uvm_phase phase);
         `uvm_info(get_name(), "<run_phase> started, objection raised.", UVM_NONE)
         phase.raise_objection(this);
-            uu_eg_sequence_a.start(uu_eg_env.uu_eg_agent_a.uu_eg_sequencer_a);
+            fork
+                begin 
+                    uu_eg_sequence_a.start(uu_eg_env.uu_eg_agent_a.uu_eg_sequencer_a);
+                end
+
+                begin 
+                    uu_eg_sequence_b.start(uu_eg_env.uu_eg_agent_b.uu_eg_sequencer_b); 
+                end
+            join
+            
         phase.drop_objection(this);
         `uvm_info(get_name(), "<run_phase> finished, objection dropped.", UVM_NONE)
     endtask : main_phase
