@@ -23,10 +23,39 @@ module tb;
   // clk generator
   always #(CLK_PERIOD/2) clk=~clk;
 
+  localparam OUTPUT=100;
+  bit [0:119] test;
+  int m_a=7;
+
   // main block
   initial begin
     $dumpfile("dump.vcd");
     $dumpvars;
+
+    // if even
+    $display("total=%d", m_a);
+    if(m_a%2) begin
+      $display("cycles 0: %d", m_a/2+1);
+      $display("cycles 1: %d", m_a/2);
+    end else begin
+      $display("cycles 0: %d", m_a/2);
+      $display("cycles 1: %d", m_a/2);
+    end
+    
+    $finish();
+    test = 0;
+    $display("test %b", test);
+    test = {1'b1, test[1:119]};
+    $display("test %b", test);
+
+    test = test >> (OUTPUT);
+    $display("test %b", test);
+    
+    repeat(5) begin
+      test = test >> 1;
+      $display("test %b", test);
+    end
+    $finish();
 
     // codes here ...
     $display("Starting simulation...");

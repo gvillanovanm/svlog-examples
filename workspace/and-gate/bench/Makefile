@@ -2,8 +2,8 @@ TB = tb
 PKG_FILES = 
 DUT_FILES = ../svlog/dut.sv
 
-run_cds: cds_batchmode
 run_questa: questa_batchmode 
+run_cds: cds_batchmode
 
 # ----------------------------------------------------
 # Xrun Cadence
