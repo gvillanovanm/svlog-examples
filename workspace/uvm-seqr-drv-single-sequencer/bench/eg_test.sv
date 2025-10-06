@@ -17,26 +17,36 @@ class eg_test extends uvm_test;
     // ways for start a sequence...
     
     // way 1: choose the sequence that you want to use (..type_b or ..type_b for example)
-    uvm_config_wrapper::set(
-      this, 
-      "env.agent.sequencer.run_phase", // attention with the phase and objections
-      "default_sequence",
-      eg_sequence_type_b::get_type()); // attention with the sequence_type*
+    // uvm_config_wrapper::set(
+    //   this, 
+    //   "env.agent.sequencer.run_phase", // attention with the phase and objections
+    //   "default_sequence",
+    //   eg_sequence_type_b::get_type()); // attention with the sequence_type*
 
     // way 2...
-    // seq_type_b = eg_sequence_type_b::type_id::create("seq");
+    seq_type_b = eg_sequence_type_b::type_id::create("seq");
+
+    /* MODELSIM Start Version workaround due to "svverilog license" */
+    /* You can use way2 and uncomment run_phase or: */
+    // Disable default phase sequence so UVM won't call randomize() internally
+    // uvm_config_db#(uvm_object_wrapper)::set(
+    //   this,
+    //   "env.agent.sequencer.run_phase",
+    //   "default_sequence",
+    //   null // no seq
+    // );
   endfunction: build_phase
   
   function void end_of_elaboration_phase(uvm_phase phase);
     uvm_top.print_topology();    
   endfunction: end_of_elaboration_phase
   
-  // task run_phase(uvm_phase phase);
-    // `uvm_info(get_name(), "<run_phase> started, objection raised.", UVM_NONE)
-    // phase.raise_objection(this);
-      // seq_type_b.start(env.agent.sequencer);
-    // phase.drop_objection(this);
-    // `uvm_info(get_name(), "<run_phase> finished, objection dropped.", UVM_NONE)
-  // endtask: run_phase
+  task run_phase(uvm_phase phase);
+    `uvm_info(get_name(), "<run_phase> started, objection raised.", UVM_NONE)
+    phase.raise_objection(this);
+      seq_type_b.start(env.agent.sequencer);
+    phase.drop_objection(this);
+    `uvm_info(get_name(), "<run_phase> finished, objection dropped.", UVM_NONE)
+  endtask: run_phase
 
 endclass: eg_test
