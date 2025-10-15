@@ -4,11 +4,10 @@
  * @version: 0.1
  * @author : Gabriel Villanova N. M.
  */
+ `include "uvm_macros.svh"  
 
 module tb;
   import uvm_pkg::*;
-  `include "uvm_macros.svh"  
-
   import eg_pkg::*;
 
   // localparams
