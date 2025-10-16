@@ -12,4 +12,5 @@ package eg_pkg;
   // ...
   `include "eg_env.sv"
   `include "eg_test.sv"
+
 endpackage: eg_pkg

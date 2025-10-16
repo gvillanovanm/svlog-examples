@@ -2,7 +2,7 @@ TB = tb
 PKG_FILES = eg_pkg.sv
 DUT_FILES = 
 
-run_altair: altair_batchmode
+run_altair: altair_cmp
 run_cds: cds_batchmode
 run_questa: questa_batchmode 
 

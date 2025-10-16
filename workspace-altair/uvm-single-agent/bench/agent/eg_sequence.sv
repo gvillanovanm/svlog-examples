@@ -23,16 +23,16 @@ class eg_sequence_type_a extends uvm_sequence #(eg_sequence_item);
       `uvm_info(get_name(), "Producing req on body sequence TYPE A", UVM_MEDIUM)
 
       // way 1: create, start, randomize/const, finish.
-      // req = eg_sequence_item::type_id::create("req");
-      // start_item(req);
-      // assert(req.randomize());
-      // finish_item(req);
-      // #10;
+      req = eg_sequence_item::type_id::create("req");
+      start_item(req);
+      assert(req.randomize());
+      finish_item(req);
+      #10;
       
       // way 2: using UVM macros; eg: uvm_do, uvm_do_with... using "req"
       // ...
-      `uvm_do(req)
-      #10;
+      // `uvm_do(req)
+      // #10;
     end
   endtask: body
 
@@ -66,16 +66,13 @@ class eg_sequence_type_b extends uvm_sequence #(eg_sequence_item);
   endtask: pre_body
 
   virtual task body();
-    repeat(5) begin
+    repeat(10) begin
       `uvm_info(get_name(), "Producing req on body sequence TYPE B", UVM_MEDIUM)
 
       // way 1: create, start, randomize/const, finish.
       req = eg_sequence_item::type_id::create("req");
       start_item(req);
-      `uvm_info(get_name(), "\n\nTHERE IS AN COMMENTED ASSERTION HERE CUZ MSIM FREE DOES NOT ALLOW\n\n", UVM_LOW)
-      // assert(req.randomize());
-      req.data_a = 123;
-      req.data_b = 321;
+      assert(req.randomize());
       finish_item(req);
       #10;
       
